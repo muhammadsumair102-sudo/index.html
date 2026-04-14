@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Muhammad Sumair — Performance Marketer</title>
+<meta name="description" content="Muhammad Sumair — Performance Marketer from Karachi. Meta Ads, Google Ads, YouTube Ads, Social Media Marketing. Real campaigns. Real results."/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#0a0a0a;
+  --bg2:#111111;
+  --bg3:#161616;
+  --border:#222222;
+  --border2:#2a2a2a;
+  --text:#ffffff;
+  --text2:#a0a0a0;
+  --text3:#555555;
+  --accent:#00c8ff;
+  --accent2:#0099cc;
+  --accent-glow:rgba(0,200,255,0.15);
+  --ff-head:'Syne',sans-serif;
+  --ff-body:'Outfit',sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--ff-body);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+::selection{background:var(--accent);color:#000;}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 6%;height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid transparent;transition:all .3s;}
+nav.scrolled{background:rgba(10,10,10,0.95);backdrop-filter:blur(20px);border-bottom-color:var(--border);}
+.nav-logo{font-family:var(--ff-head);font-size:1.1rem;font-weight:800;color:var(--text);text-decoration:none;letter-spacing:-.02em;}
+.nav-logo span{color:var(--accent);}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{font-size:.85rem;font-weight:500;color:var(--text2);text-decoration:none;letter-spacing:.04em;transition:color .2s;}
+.nav-links a:hover{color:var(--accent);}
+.nav-cta{font-size:.85rem;font-weight:600;color:var(--accent);text-decoration:none;border:1px solid var(--accent);padding:.4rem 1.1rem;border-radius:6px;transition:all .2s;letter-spacing:.02em;}
+.nav-cta:hover{background:var(--accent);color:#000;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--text2);transition:.3s;}
+.mob-menu{display:none;position:fixed;top:68px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:1.5rem 6%;z-index:99;}
+.mob-menu.open{display:block;}
+.mob-menu a{display:block;padding:.75rem 0;font-size:1rem;font-weight:500;color:var(--text2);text-decoration:none;border-bottom:1px solid var(--border);transition:color .2s;}
+.mob-menu a:last-child{border-bottom:none;}
+.mob-menu a:hover{color:var(--accent);}
+
+/* HERO */
+#home{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 6% 80px;position:relative;text-align:center;overflow:hidden;}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:.3;}
+.hero-grid-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,transparent 40%,var(--bg) 100%);}
+.hero-glow{position:absolute;top:30%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(0,200,255,0.08) 0%,transparent 70%);pointer-events:none;}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,200,255,0.08);border:1px solid rgba(0,200,255,0.2);color:var(--accent);font-size:.75rem;font-weight:600;padding:.35rem 1rem;border-radius:100px;margin-bottom:2rem;letter-spacing:.08em;text-transform:uppercase;animation:fadeUp .6s var(--ease) both;}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+.hero-name{font-family:var(--ff-head);font-size:clamp(3rem,7vw,6rem);font-weight:800;line-height:1;letter-spacing:-.04em;margin-bottom:1.5rem;animation:fadeUp .6s .1s var(--ease) both;}
+.hero-name span{color:var(--accent);}
+.hero-sub{font-size:clamp(1rem,2vw,1.25rem);font-weight:300;color:var(--text2);max-width:580px;line-height:1.7;margin:0 auto 2.5rem;animation:fadeUp .6s .2s var(--ease) both;}
+.hero-sub strong{color:var(--text);font-weight:500;}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp .6s .3s var(--ease) both;}
+.btn-main{background:var(--accent);color:#000;padding:.75rem 2rem;border-radius:8px;font-size:.95rem;font-weight:700;text-decoration:none;transition:all .2s;font-family:var(--ff-body);}
+.btn-main:hover{background:#00e5ff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,200,255,0.3);}
+.btn-ghost{background:transparent;color:var(--text);padding:.75rem 2rem;border-radius:8px;font-size:.95rem;font-weight:600;text-decoration:none;border:1px solid var(--border2);transition:all .2s;font-family:var(--ff-body);}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+.hero-tagline{margin-top:3.5rem;font-family:var(--ff-head);font-size:clamp(.9rem,1.5vw,1.1rem);font-weight:600;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;animation:fadeUp .6s .4s var(--ease) both;}
+.hero-tagline span{color:var(--accent);}
+.hero-stats{display:flex;gap:3rem;justify-content:center;margin-top:3rem;padding-top:3rem;border-top:1px solid var(--border);animation:fadeUp .6s .5s var(--ease) both;flex-wrap:wrap;}
+.stat-item{text-align:center;}
+.stat-num{font-family:var(--ff-head);font-size:2rem;font-weight:800;color:var(--text);display:block;line-height:1;}
+.stat-num span{color:var(--accent);}
+.stat-label{font-size:.75rem;color:var(--text3);letter-spacing:.06em;text-transform:uppercase;margin-top:.3rem;display:block;}
+
+/* MARQUEE */
+.marquee-wrap{padding:2rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;background:var(--bg2);position:relative;}
+.marquee-track{display:flex;gap:2.5rem;width:max-content;animation:marquee 28s linear infinite;}
+.marquee-track:hover{animation-play-state:paused;}
+.marquee-item{font-size:.8rem;font-weight:600;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;display:flex;align-items:center;gap:.75rem;}
+.marquee-item span{color:var(--accent);}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+section{padding:100px 6%;}
+.section-inner{max-width:1100px;margin:0 auto;}
+.section-eyebrow{font-size:.72rem;font-weight:700;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;display:block;margin-bottom:.75rem;font-family:var(--ff-body);}
+.section-title{font-family:var(--ff-head);font-size:clamp(2rem,4vw,3rem);font-weight:800;color:var(--text);line-height:1.1;letter-spacing:-.03em;margin-bottom:1rem;}
+.section-title span{color:var(--accent);}
+.section-sub{font-size:1rem;color:var(--text2);max-width:520px;line-height:1.75;}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* SERVICES */
+#services{background:var(--bg);}
+.services-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:1.5rem;}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+.service-card{background:var(--bg);padding:2rem;position:relative;overflow:hidden;transition:background .25s;}
+.service-card::before{content:'';position:absolute;inset:0;background:var(--accent-glow);opacity:0;transition:opacity .3s;}
+.service-card:hover{background:var(--bg2);}
+.service-card:hover::before{opacity:1;}
+.service-num{font-family:var(--ff-head);font-size:.75rem;font-weight:700;color:var(--text3);letter-spacing:.1em;margin-bottom:1.25rem;display:block;}
+.service-icon{font-size:1.75rem;margin-bottom:1rem;display:block;}
+.service-card h3{font-family:var(--ff-head);font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:.6rem;line-height:1.3;}
+.service-card p{font-size:.875rem;color:var(--text2);line-height:1.7;}
+.service-arrow{display:block;margin-top:1.25rem;font-size:.8rem;font-weight:600;color:var(--accent);letter-spacing:.04em;opacity:0;transform:translateX(-6px);transition:all .25s;}
+.service-card:hover .service-arrow{opacity:1;transform:translateX(0);}
+
+/* SKILLS */
+#skills{background:var(--bg2);}
+.skills-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.skills-grid{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem;}
+.skill-chip{background:var(--bg3);border:1px solid var(--border2);padding:.45rem 1rem;border-radius:6px;font-size:.82rem;font-weight:500;color:var(--text2);transition:all .2s;cursor:default;}
+.skill-chip:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-glow);}
+.skill-bars{display:flex;flex-direction:column;gap:1.25rem;margin-top:2rem;}
+.skill-bar-item{}
+.skill-bar-top{display:flex;justify-content:space-between;margin-bottom:.4rem;}
+.skill-bar-label{font-size:.85rem;font-weight:500;color:var(--text);}
+.skill-bar-pct{font-size:.8rem;font-weight:600;color:var(--accent);}
+.skill-bar-track{height:3px;background:var(--border2);border-radius:2px;overflow:hidden;}
+.skill-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),#00e5ff);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform 1s var(--ease);}
+
+/* WORK */
+#work{background:var(--bg);}
+.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:3rem;}
+.work-card{background:var(--bg);padding:2rem 2.25rem;transition:background .25s;position:relative;overflow:hidden;}
+.work-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease);}
+.work-card:hover{background:var(--bg2);}
+.work-card:hover::after{transform:scaleX(1);}
+.work-tag{font-size:.7rem;font-weight:700;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem;display:block;}
+.work-card h3{font-family:var(--ff-head);font-size:1.15rem;font-weight:700;color:var(--text);margin-bottom:.6rem;line-height:1.3;}
+.work-card p{font-size:.875rem;color:var(--text2);line-height:1.7;margin-bottom:1.25rem;}
+.work-link{font-size:.8rem;font-weight:600;color:var(--accent);letter-spacing:.04em;}
+
+/* CONTACT */
+#contact{background:var(--bg2);}
+.contact-inner{max-width:700px;margin:0 auto;text-align:center;}
+.contact-inner .section-sub{margin:0 auto 3rem;}
+.contact-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:3rem;}
+.contact-card{background:var(--bg3);border:1px solid var(--border2);border-radius:12px;padding:1.5rem;text-decoration:none;transition:all .25s;display:flex;flex-direction:column;align-items:center;gap:.5rem;}
+.contact-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,200,255,0.1);}
+.cc-icon{font-size:1.5rem;}
+.cc-label{font-size:.7rem;font-weight:700;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;}
+.cc-value{font-size:.875rem;font-weight:500;color:var(--text);word-break:break-all;text-align:center;}
+.contact-cta{font-size:1rem;color:var(--text2);line-height:1.75;}
+.contact-cta strong{color:var(--text);}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 6%;}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.footer-logo{font-family:var(--ff-head);font-size:1rem;font-weight:800;color:var(--text);}
+.footer-logo span{color:var(--accent);}
+.footer-copy{font-size:.8rem;color:var(--text3);}
+.footer-right{font-size:.8rem;color:var(--text3);}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .services-grid{grid-template-columns:1fr 1fr;}
+  .skills-layout{grid-template-columns:1fr;}
+  .work-grid{grid-template-columns:1fr;}
+  .contact-cards{grid-template-columns:1fr 1fr;}
+  .nav-links,.nav-cta{display:none;}
+  .hamburger{display:flex;}
+  .hero-stats{gap:2rem;}
+}
+@media(max-width:580px){
+  section{padding:70px 5%;}
+  .services-grid{grid-template-columns:1fr;}
+  .contact-cards{grid-template-columns:1fr;}
+  .hero-stats{gap:1.5rem;}
+  .services-header{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">SM<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact">Let's Talk</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Let's Talk →</a>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#skills" onclick="closeMenu()">Skills</a>
+  <a href="#work" onclick="closeMenu()">Work</a>
+  <a href="#contact" onclick="closeMenu()">Let's Talk</a>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-badge">Available for clients · Karachi, Pakistan</div>
+
+  <h1 class="hero-name">Muhammad<br><span>Sumair</span></h1>
+
+  <p class="hero-sub">
+    16 years old. Based in Karachi. I run <strong>Meta Ads, Google Ads and YouTube Ads</strong> for
+    businesses that are done spending money on campaigns that go nowhere.
+  </p>
+
+  <div class="hero-btns">
+    <a href="#work" class="btn-main">See My Work</a>
+    <a href="#contact" class="btn-ghost">Work With Me</a>
+  </div>
+
+  <p class="hero-tagline">"I don't sell ads. <span>I build revenue engines.</span>"</p>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <span class="stat-num">8<span>+</span></span>
+      <span class="stat-label">Skills in stack</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">8</span>
+      <span class="stat-label">Core services</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">3</span>
+      <span class="stat-label">Ad platforms</span>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item">Meta Ads <span>·</span></div>
+    <div class="marquee-item">Google Ads <span>·</span></div>
+    <div class="marquee-item">YouTube Ads <span>·</span></div>
+    <div class="marquee-item">Facebook Ads <span>·</span></div>
+    <div class="marquee-item">Instagram Ads <span>·</span></div>
+    <div class="marquee-item">Ad Copywriting <span>·</span></div>
+    <div class="marquee-item">Page Management <span>·</span></div>
+    <div class="marquee-item">Content Creation <span>·</span></div>
+    <div class="marquee-item">Campaign Optimization <span>·</span></div>
+    <div class="marquee-item">Audience Targeting <span>·</span></div>
+    <div class="marquee-item">ROAS Optimization <span>·</span></div>
+    <div class="marquee-item">Meta Pixel <span>·</span></div>
+    <div class="marquee-item">Retargeting <span>·</span></div>
+    <div class="marquee-item">Lead Generation <span>·</span></div>
+    <div class="marquee-item">Meta Ads <span>·</span></div>
+    <div class="marquee-item">Google Ads <span>·</span></div>
+    <div class="marquee-item">YouTube Ads <span>·</span></div>
+    <div class="marquee-item">Facebook Ads <span>·</span></div>
+    <div class="marquee-item">Instagram Ads <span>·</span></div>
+    <div class="marquee-item">Ad Copywriting <span>·</span></div>
+    <div class="marquee-item">Page Management <span>·</span></div>
+    <div class="marquee-item">Content Creation <span>·</span></div>
+    <div class="marquee-item">Campaign Optimization <span>·</span></div>
+    <div class="marquee-item">Audience Targeting <span>·</span></div>
+    <div class="marquee-item">ROAS Optimization <span>·</span></div>
+    <div class="marquee-item">Meta Pixel <span>·</span></div>
+    <div class="marquee-item">Retargeting <span>·</span></div>
+    <div class="marquee-item">Lead Generation <span>·</span></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="services-header reveal">
+      <div>
+        <span class="section-eyebrow">What I Do</span>
+        <h2 class="section-title">Services</h2>
+      </div>
+      <p class="section-sub">I don't offer everything. I focus on what I'm actually good at — and that focus is what gets results.</p>
+    </div>
+    <div class="services-grid reveal">
+
+      <div class="service-card">
+        <span class="service-num">01</span>
+        <span class="service-icon">🎯</span>
+        <h3>Meta Ads</h3>
+        <p>Facebook and Instagram campaigns built properly — cold traffic, retargeting, and conversion layers. Strategy, copy, targeting and daily optimization. Not just boosting.</p>
+        <span class="service-arrow">→ Get started</span>
+      </div>
+
+      <div class="service-card">
+        <span class="service-num">02</span>
+        <span class="service-icon">🔍</span>
+        <h3>Google Ads</h3>
+        <p>Search campaigns that put your business in front of people actively looking for what you sell. Keyword strategy, ad copy, and conversion tracking from day one.</p>
+        <span class="service-arrow">→ Get started</span>
+      </div>
+
+      <div class="service-card">
+        <span class="service-num">03</span>
+        <span class="service-icon">▶️</span>
+        <h3>YouTube Ads</h3>
+        <p>Video campaigns that build awareness and drive action. Skippable, non-skippable, and bumper ad formats — matched to your goal and your audience.</p>
+        <span class="service-arrow">→ Get started</span>
+      </div>
+
+      <div class="service-card">
+        <span class="service-num">04</span>
+        <span class="service-icon">✍️</span>
+        <h3>Ad Copywriting</h3>
+        <p>Hooks that stop the scroll, body copy that holds attention, and CTAs that push people to act. Written specifically for your customer, not a generic template.</p>
+        <span class="service-arrow">→ Get started</span>
+      </div>
+
+      <div class="service-card">
+        <span class="service-num">05</span>
+        <span class="service-icon">📲</span>
+        <h3>Lead Generation</h3>
+        <p>Lead form campaigns on Meta that bring in people who actually want to hear from you. Qualified leads with real intent — not just clicks from the curious.</p>
+        <span class="service-arrow">→ Get started</span>
+      </div>
+
+      <div class="service-card">
+        <span class="service-num">06</span>
+        <span class="service-icon">📱</span>
+        <h3>Page Management</h3>
+        <p>Your social pages run consistently, look professional, and stay active. Captions, hashtags, scheduling, and engagement — handled.</p>
+        <span class="service-arrow">→ Get started</span>
+      </div>
+
+      <div class="service-card">
+        <span class="service-num">07</span>
+        <span class="service-icon">📊</span>
+        <h3>Campaign Analytics</h3>
+        <p>I track ROAS, CPR, CTR, CPM and frequency weekly. When something is working I scale it. When it isn't I fix it. No guessing, no autopilot.</p>
+        <span class="service-arrow">→ Get started</span>
+      </div>
+
+      <div class="service-card">
+        <span class="service-num">08</span>
+        <span class="service-icon">🎨</span>
+        <h3>Content Creation</h3>
+        <p>Carousels, branded images, and reel graphics made in Canva. Designed for the platform, matched to your brand, ready to post or run as ads.</p>
+        <span class="service-arrow">→ Get started</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="skills-layout">
+
+      <div class="reveal">
+        <span class="section-eyebrow">Toolkit</span>
+        <h2 class="section-title">Skills &<br><span>Tools</span></h2>
+        <p class="section-sub">Paid ads across three platforms, copy that converts, and the analytics to back every decision with data.</p>
+        <div class="skills-grid">
+          <span class="skill-chip">Meta Ads Manager</span>
+          <span class="skill-chip">Google Ads</span>
+          <span class="skill-chip">YouTube Ads</span>
+          <span class="skill-chip">Facebook Ads</span>
+          <span class="skill-chip">Instagram Ads</span>
+          <span class="skill-chip">Meta Pixel</span>
+          <span class="skill-chip">Custom Audiences</span>
+          <span class="skill-chip">Lookalike Audiences</span>
+          <span class="skill-chip">Retargeting</span>
+          <span class="skill-chip">Ad Copywriting</span>
+          <span class="skill-chip">Campaign Structure</span>
+          <span class="skill-chip">ROAS Optimization</span>
+          <span class="skill-chip">Lead Generation</span>
+          <span class="skill-chip">Page Management</span>
+          <span class="skill-chip">Content Creation</span>
+          <span class="skill-chip">Audience Targeting</span>
+          <span class="skill-chip">A/B Testing</span>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <span class="section-eyebrow">Proficiency</span>
+        <h2 class="section-title" style="font-size:1.5rem;">Core<br><span>Strengths</span></h2>
+        <div class="skill-bars">
+          <div class="skill-bar-item">
+            <div class="skill-bar-top"><span class="skill-bar-label">Meta Ads Strategy</span><span class="skill-bar-pct">90%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-w="0.9"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-top"><span class="skill-bar-label">Ad Copywriting</span><span class="skill-bar-pct">88%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-w="0.88"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-top"><span class="skill-bar-label">Google Ads</span><span class="skill-bar-pct">80%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-w="0.8"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-top"><span class="skill-bar-label">YouTube Ads</span><span class="skill-bar-pct">78%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-w="0.78"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-top"><span class="skill-bar-label">Audience Targeting</span><span class="skill-bar-pct">85%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-w="0.85"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-top"><span class="skill-bar-label">Campaign Optimization</span><span class="skill-bar-pct">82%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-w="0.82"></div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-eyebrow">Experience & Projects</span>
+      <h2 class="section-title">Work I've Done</h2>
+    </div>
+    <div class="work-grid reveal">
+
+      <div class="work-card">
+        <span class="work-tag">Meta Ads 🎯</span>
+        <h3>Meta Ads Funnel — Clothing E-commerce Brand</h3>
+        <p>Set up a 3-layer campaign structure — cold traffic at the top, retargeting in the middle, conversion at the bottom. Wrote all the ad copy, built the audiences, mapped the budget across each layer.</p>
+        <span class="work-link">→ Full Funnel Strategy</span>
+      </div>
+
+      <div class="work-card">
+        <span class="work-tag">Social Media 📱</span>
+        <h3>Social Media Buildout — Local Service Business</h3>
+        <p>Started from zero. Set up their Instagram and Facebook pages, wrote the bio, built a 30-day content calendar, and wrote every caption with platform-specific hashtags.</p>
+        <span class="work-link">→ Full Content System</span>
+      </div>
+
+      <div class="work-card">
+        <span class="work-tag">Copywriting ✍️</span>
+        <h3>Ad Copy Portfolio — 3 Different Niches</h3>
+        <p>Wrote 9 Meta Ad scripts across e-commerce, clothing, and food. Each one has a hook, problem, offer, social proof line, and CTA. Used PAS and AIDA frameworks throughout.</p>
+        <span class="work-link">→ Copywriting Samples</span>
+      </div>
+
+      <div class="work-card">
+        <span class="work-tag">Personal Brand 🚀</span>
+        <h3>My Own Brand — Built From Zero at 16</h3>
+        <p>Built everything from scratch. Brand identity, profiles across 5 platforms, a 90-day content calendar, this website, and a full CV. Documented the whole process publicly.</p>
+        <span class="work-link">→ linkedin.com/in/muhammad-sumair-896410378</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-inner reveal">
+      <span class="section-eyebrow">Get In Touch</span>
+      <h2 class="section-title">Let's Build<br><span>Something.</span></h2>
+      <p class="section-sub">Open to freelance projects, long-term clients, and collaborations. If your ads aren't converting — let's fix that.</p>
+
+      <div class="contact-cards">
+        <a class="contact-card" href="https://linkedin.com/in/muhammad-sumair-896410378" target="_blank">
+          <span class="cc-icon">💼</span>
+          <span class="cc-label">LinkedIn</span>
+          <span class="cc-value">muhammad-sumair-896410378</span>
+        </a>
+        <a class="contact-card" href="https://wa.me/923310310587" target="_blank">
+          <span class="cc-icon">📲</span>
+          <span class="cc-label">WhatsApp</span>
+          <span class="cc-value">+92 331 0310587</span>
+        </a>
+        <a class="contact-card" href="mailto:muhammadsumair765@gmail.com">
+          <span class="cc-icon">✉️</span>
+          <span class="cc-label">Email</span>
+          <span class="cc-value">muhammadsumair765@gmail.com</span>
+        </a>
+        <a class="contact-card" href="https://www.instagram.com/muhammad_sumair_18" target="_blank">
+          <span class="cc-icon">📸</span>
+          <span class="cc-label">Instagram</span>
+          <span class="cc-value">@muhammad_sumair_18</span>
+        </a>
+      </div>
+
+      <p class="contact-cta">Based in <strong>Karachi, Pakistan.</strong> Open to <strong>local and international clients.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">SM<span>.</span></div>
+    <span class="footer-copy">© 2026 Muhammad Sumair. All rights reserved.</span>
+    <span class="footer-right">Performance Marketer · Karachi</span>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20);
+});
+
+function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open');}
+function closeMenu(){document.getElementById('mobMenu').classList.remove('open');}
+
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('visible'),i*100);
+      observer.unobserve(e.target);
+    }
+  });
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+const barObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.skill-bar-fill').forEach((bar,i)=>{
+        const w=bar.getAttribute('data-w')||'0.8';
+        setTimeout(()=>{bar.style.transform=`scaleX(${w})`;},i*120);
+      });
+      barObserver.unobserve(e.target);
+    }
+  });
+},{threshold:0.2});
+document.querySelectorAll('.skill-bars').forEach(el=>barObserver.observe(el));
+
+const sections=document.querySelectorAll('section[id]');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-100)cur=s.getAttribute('id');});
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    a.style.color=a.getAttribute('href')==='#'+cur?'var(--accent)':'';
+  });
+});
+</script>
+</body>
+</html>
